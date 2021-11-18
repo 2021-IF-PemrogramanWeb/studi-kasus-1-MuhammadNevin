@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2021 at 04:17 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Waktu pembuatan: 15 Nov 2021 pada 13.00
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pwebtabelgrafik`
+-- Database: `data_reason`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kejadian`
+-- Struktur dari tabel `kejadian`
 --
 
 CREATE TABLE `kejadian` (
@@ -38,7 +38,7 @@ CREATE TABLE `kejadian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kejadian`
+-- Dumping data untuk tabel `kejadian`
 --
 
 INSERT INTO `kejadian` (`KJD_ID`, `KJD_ON`, `KJD_OF`, `KJD_ACT`, `KJD_DIS`, `R_ID_KJD`, `USR_ID_KJD`) VALUES
@@ -124,12 +124,13 @@ INSERT INTO `kejadian` (`KJD_ID`, `KJD_ON`, `KJD_OF`, `KJD_ACT`, `KJD_DIS`, `R_I
 (91, '2021-11-13 21:26:00', '2021-11-13 21:30:00', 'Hapsari ', 'Kusuma ', 4, 3),
 (92, '2021-11-13 21:44:00', '2021-11-13 21:46:00', 'Maharani', 'Kumalasari ', 15, 1),
 (93, '2021-11-13 21:44:00', '2021-11-13 21:45:00', 'Hapsari ', 'Larina', 2, 1),
-(94, '2021-11-13 21:46:00', '2021-11-13 21:49:00', 'Dian', 'Padmasari', 8, 1);
+(94, '2021-11-13 21:46:00', '2021-11-13 21:49:00', 'Dian', 'Padmasari', 8, 1),
+(96, '2021-12-01 18:52:00', '2021-11-20 18:53:00', 'Nevin', 'Ahmad', 3, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reason`
+-- Struktur dari tabel `reason`
 --
 
 CREATE TABLE `reason` (
@@ -138,7 +139,7 @@ CREATE TABLE `reason` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `reason`
+-- Dumping data untuk tabel `reason`
 --
 
 INSERT INTO `reason` (`R_ID`, `R_DESC`) VALUES
@@ -162,7 +163,7 @@ INSERT INTO `reason` (`R_ID`, `R_DESC`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -174,20 +175,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`USR_ID`, `USR_USERNAME`, `USR_PASSSWORD`, `USR_NAME`, `USR_PHOTO`) VALUES
-(1, 'agniasari', 'agniasariPass', 'Agniasari Candramaya', 'agniasari.jpg'),
-(2, 'kencana', 'kencanaPass', 'Kencana Nindita', 'kencana.jpg'),
-(3, 'sasmaya', 'sasmayaPass', 'Sasmaya Ratimaya', 'sasmaya.jpg');
+(1, 'ryan', 'ryan123', 'Ryan Giggs', 'ryan.jpg'),
+(2, 'nova', 'nova123', 'Setya Novanto', 'nova.jpg'),
+(3, 'kayla', 'kayla123', 'Kayla Marixa', 'kayla.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `kejadian`
+-- Indeks untuk tabel `kejadian`
 --
 ALTER TABLE `kejadian`
   ADD PRIMARY KEY (`KJD_ID`),
@@ -195,45 +196,45 @@ ALTER TABLE `kejadian`
   ADD KEY `FOREIGN_USER` (`USR_ID_KJD`);
 
 --
--- Indexes for table `reason`
+-- Indeks untuk tabel `reason`
 --
 ALTER TABLE `reason`
   ADD PRIMARY KEY (`R_ID`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`USR_ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `kejadian`
+-- AUTO_INCREMENT untuk tabel `kejadian`
 --
 ALTER TABLE `kejadian`
-  MODIFY `KJD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `KJD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
--- AUTO_INCREMENT for table `reason`
+-- AUTO_INCREMENT untuk tabel `reason`
 --
 ALTER TABLE `reason`
   MODIFY `R_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `USR_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `kejadian`
+-- Ketidakleluasaan untuk tabel `kejadian`
 --
 ALTER TABLE `kejadian`
   ADD CONSTRAINT `FOREIGN_KEJADIAN` FOREIGN KEY (`R_ID_KJD`) REFERENCES `reason` (`R_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
