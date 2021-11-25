@@ -1,2 +1,3 @@
-# studi-kasus-1-Cahyadesthian-156
-studi-kasus-1-Cahyadesthian-156 created by GitHub Classroom
+# studi-kasus-1-MuhammadNevin
+Muhammad Nevin
+0511194000079
